@@ -36,6 +36,7 @@ class AgentMQTTAdapter(AgentGateway):
         try:
             payload: str = msg.payload.decode("utf-8")
             # Create AgentData instance with the received data
+            # logging.info(f"Payload: {payload}")
             agent_data = AgentData.model_validate_json(payload, strict=True)
             # Process the received data (you can call a use case here if needed)
             processed_data = process_agent_data(agent_data)
